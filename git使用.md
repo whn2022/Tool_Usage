@@ -12,6 +12,14 @@ git diff 暂存区与工作区状态相比较（必须先上传文件到暂存�
 
 git status 查看当前工作区和暂存区的状态
 
+git commit -m "本次提交的说明"（尽量带上m参数）
+
+git ls-files(显示暂存区文件列表，只要文件被跟踪就会显示)
+
+git push -u <remote_repository_name> <remote_branch_name> （首次推送需要用u来进行关联）
+
+git pull <remote_repository_name> <remote_branch_name> （--allow-unrelated-histories，没有共同祖先的分支进行合并）（--no-edit 不编辑默认合并信息）
+
 # 二、git相关原理
 
 ![一文彻底搞清Git工作原理，实战案例](https://picx.zhimg.com/70/v2-992c7beb294c449a3b0fde75d05fbb09_1440w.image?source=172ae18b&biz_tag=Post)
