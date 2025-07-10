@@ -8,13 +8,19 @@ git remote show 显示关联的远程仓库
 
 git add <file_name> 添加文件到暂存区
 
-git diff 暂存区与工作区状态相比较（必须先上传文件到暂存区）
+git diff 暂存区与工作区状态相比较（必须先上传文件到暂存区）（--cached参数比较的是最后一次提交和暂存区的差异）
+
+git status 查看当前工作区和暂存区的状态
 
 # 二、git相关原理
 
 ![一文彻底搞清Git工作原理，实战案例](https://picx.zhimg.com/70/v2-992c7beb294c449a3b0fde75d05fbb09_1440w.image?source=172ae18b&biz_tag=Post)
 
 ## 暂存区
+
+记录下一次提交的修改快照
+
+位置 ： .git目录下的index文件中（需要提交才能看见）
 
 # 三、git解析
 
@@ -91,3 +97,13 @@ Changes not staged for commit:
         modified:   "git\344\275\277\347\224\250.md"
 ```
 
+# 四、.git文件
+
+| 文件/目录  | 作用                                                         |
+| :--------- | :----------------------------------------------------------- |
+| `HEAD`     | 当前所在的分支（如 `ref: refs/heads/master`）。              |
+| `config`   | 仓库的本地配置（远程地址、用户信息等）。                     |
+| `objects/` | 存储所有 Git 对象（提交、文件内容等），是版本库的核心数据。  |
+| `refs/`    | 存储分支和标签的指针（如 `refs/heads/master` 指向最新提交）。 |
+| `index`    | 暂存区（Staging Area）的二进制文件，记录 `git add` 的内容。  |
+| `logs/`    | 操作历史（如 `git reflog` 的数据来源）。                     |
