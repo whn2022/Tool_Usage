@@ -30,6 +30,12 @@ git pull <remote_repository_name> <remote_branch_name> （--allow-unrelated-hist
 
 位置 ： .git目录下的index文件中（需要提交才能看见）
 
+## 本地版本库
+
+存储所有提交的历史记录
+
+位置：.git/objects/
+
 # 三、git解析
 
 ## git diff命令输出解析
