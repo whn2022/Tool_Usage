@@ -18,7 +18,7 @@ git ls-files(显示暂存区文件列表，只要文件被跟踪就会显示)
 
 git push -u <remote_repository_name> <remote_branch_name> （首次推送需要用u来进行关联）
 
-git pull <remote_repository_name> <remote_branch_name> （--allow-unrelated-histories，没有共同祖先的分支进行合并）（--no-edit 不编辑默认合并信息）
+git pull <remote_repository_name> <remote_branch_name> （--allow-unrelated-histories，没有共同祖先的分支进行合并）（--no-edit 不编辑默认合并信息，只适用于合并提交或修改最近一次提交）
 
 # 二、git相关原理
 
@@ -110,6 +110,8 @@ Changes not staged for commit:
   (use "git restore <file>..." to discard changes in working directory)// 丢弃工作区的更改，将文件恢复到暂存区或最近一次提交的版本
         modified:   "git\344\275\277\347\224\250.md"
 ```
+
+## git log命令输出解析
 
 # 四、.git文件
 
