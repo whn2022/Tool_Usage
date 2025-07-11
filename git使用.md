@@ -12,13 +12,15 @@ git diff 暂存区与工作区状态相比较（必须先上传文件到暂存�
 
 git status 查看当前工作区和暂存区的状态
 
-git commit -m "本次提交的说明"（尽量带上m参数）
+git commit -m "本次提交的说明"（尽量带上m参数）（-a 表示自动暂存所有已跟踪文件的修改并提交）
 
 git ls-files(显示暂存区文件列表，只要文件被跟踪就会显示)
 
 git push -u <remote_repository_name> <remote_branch_name> （首次推送需要用u来进行关联）
 
-git pull <remote_repository_name> <remote_branch_name> （--allow-unrelated-histories，没有共同祖先的分支进行合并）（--no-edit 不编辑默认合并信息，只适用于合并提交或修改最近一次提交）
+git pull <remote_repository_name> <remote_branch_name> （--allow-unrelated-histories 没有共同祖先的分支进行合并）（--no-edit  不编辑默认合并信息，只适用于合并提交或修改最近一次提交）
+
+git log 显示提交历史 （--help 查看相关参数，--oneline original/master..master 查看远程没有本地有的提交）
 
 # 二、git相关原理
 
@@ -109,9 +111,46 @@ Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git restore <file>..." to discard changes in working directory)// 丢弃工作区的更改，将文件恢复到暂存区或最近一次提交的版本
         modified:   "git\344\275\277\347\224\250.md"
+  
+  
+ 
+ 
+ 
+Your branch is ahead of 'Tool_Usage/master' by 1 commit. // 本地尚有一个未提交
+Your branch is behind 'origin/master' by X commits. // 本地尚未拉取
+Your branch and 'origin/master' have diverged,
+and have X and Y different commits each, respectively. // 本地与远程有不同的提交历史
 ```
 
 ## git log命令输出解析
+
+```
+$ git log
+commit e75775a53624f56616fc46e4e17382fe165b2e5e (HEAD -> master, Tool_Usage/master)//同步
+Author: whn2024 <1105185445@qq.com>
+Date:   Thu Jul 10 23:06:28 2025 +0800
+
+    git相关使用更新
+
+commit 51b4c7439a475fe142df001922bc457166f6b779
+Merge: f140746 d798b42
+Author: whn2024 <1105185445@qq.com>
+Date:   Thu Jul 10 23:01:03 2025 +0800
+
+    Merge branch 'master' of https://github.com/whn2022/Tool_Usage
+
+commit f140746cdfbf2d57e11626d180c3ca2db3d1f507
+Author: whn2024 <1105185445@qq.com>
+Date:   Thu Jul 10 22:45:29 2025 +0800
+
+    git相关使用更新
+
+commit 6f2cc8a8060645ba722fd7b41959a281a512052e
+Author: whn2024 <1105185445@qq.com>
+Date:   Thu Jul 10 22:35:13 2025 +0800
+```
+
+
 
 # 四、.git文件
 
