@@ -1,30 +1,114 @@
 # 一、git命令
 
+--help 查看对应命令
+
+## git add
+
+git add <file_name> 添加文件到暂存区
+
+## git branch
+
+git branch 列出本地所有分支
+
+-v 查看最近一次提交信息
+
+-a 查看远程分支
+
+git branch <new_branch_name> 创建分支
+
+git branch -m/-M <new_branch_name> 修改当前分支名称
+
+## git checkout
+
+git checkout <branchname> 切换分支 （如果没有该分支，可以加-b参数创建分支）
+
+git checkout -- <file> 丢弃工作区对某个文件的修改
+
+## git commit
+
+git commit -m "本次提交的说明"（尽量带上m参数）
+
+-a 表示自动暂存所有已跟踪文件的修改并提交
+
+## git config
+
+git config --global http.proxy http://127.0.0.1:你的代理端口号 为 Git 的 HTTP/HTTPS 协议设置全局代理
+
+git config --global https.proxy http://127.0.0.1:你的代理端口号 为 Git 的 HTTP/HTTPS 协议设置全局代理
+
+git config --global --unset http.proxy  取消代理
+git config --global --unset https.proxy  取消代理
+
+## git diff
+
+git diff 暂存区与工作区状态相比较（必须先上传文件到暂存区）
+
+--cached参数比较的是最后一次提交和暂存区的差异
+
+## git init
+
 git init 在当前文件夹创建.git文件，用以关联远程仓库
+
+## git log
+
+git log 显示提交历史 
+
+--oneline original/master..master 查看远程没有本地有的提交
+
+--oneline master..original/master 查看本地没有远程有的提交
+
+## git ls-files
+
+git ls-files(显示暂存区文件列表，只要文件被跟踪就会显示)
+
+## git merge
+
+git merge <branch_name> 合并branch到当前分支，可能有冲突
+
+## git pull
+
+git pull <remote_repository_name> <remote_branch_name> 
+
+--allow-unrelated-histories 没有共同祖先的分支进行合并
+
+--no-edit  不编辑默认合并信息，只适用于合并提交或修改最近一次提交
+
+## git push
+
+git push -u <remote_repository_name> <remote_branch_name> （首次推送需要用u来进行关联）
+
+git push <remote_repository_name> --delete <remote_branch_name>  删除某个远程分支（不能为默认分支）
+
+## git remote
 
 git remote add <remote_name> <remote_url> 关联远程仓库
 
 git remote show 显示关联的远程仓库
 
-git add <file_name> 添加文件到暂存区
-
-git diff 暂存区与工作区状态相比较（必须先上传文件到暂存区）（--cached参数比较的是最后一次提交和暂存区的差异）
+## git status
 
 git status 查看当前工作区和暂存区的状态
 
-git commit -m "本次提交的说明"（尽量带上m参数）（-a 表示自动暂存所有已跟踪文件的修改并提交）
 
-git ls-files(显示暂存区文件列表，只要文件被跟踪就会显示)
-
-git push -u <remote_repository_name> <remote_branch_name> （首次推送需要用u来进行关联）
-
-git pull <remote_repository_name> <remote_branch_name> （--allow-unrelated-histories 没有共同祖先的分支进行合并）（--no-edit  不编辑默认合并信息，只适用于合并提交或修改最近一次提交）
-
-git log 显示提交历史 （--help 查看相关参数，--oneline original/master..master 查看远程没有本地有的提交）
 
 # 二、git相关原理
 
 ![一文彻底搞清Git工作原理，实战案例](https://picx.zhimg.com/70/v2-992c7beb294c449a3b0fde75d05fbb09_1440w.image?source=172ae18b&biz_tag=Post)
+
+## 文件四大状态
+
+1. **未跟踪（Untracked）**
+   - 新创建的文件，Git 尚未纳入版本控制。
+   - **示例**：新建的 `newfile.txt`，从未执行过 `git add`。
+2. **已修改（Modified）**
+   - 已跟踪的文件被修改，但尚未暂存。
+   - **示例**：修改了 `README.md` 但未 `git add`。
+3. **已暂存（Staged）**
+   - 文件的当前版本已标记为待提交（通过 `git add`）。
+   - **示例**：执行 `git add README.md` 后，文件进入暂存区。
+4. **已提交（Committed）**
+   - 文件的当前版本已安全存入本地仓库（通过 `git commit`）。
+   - **示例**：执行 `git commit` 后，文件快照永久存储。
 
 ## 暂存区
 
