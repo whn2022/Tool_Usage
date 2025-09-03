@@ -81,7 +81,7 @@ git push <remote_repository_name> --delete <remote_branch_name>  删除某个远
 
 ## git remote
 
-git remote add <remote_name> <remote_url> 关联远程仓库
+git remote add <remote_name> <remote_url> 关联远程仓库（主要是通过url决定，name为别名，后续使用时可使用该别名）
 
 git remote show 显示关联的远程仓库
 
@@ -89,7 +89,19 @@ git remote show 显示关联的远程仓库
 
 git status 查看当前工作区和暂存区的状态
 
+## git fetch
 
+git fetch 将远程主机的最新内容拉到本地，由用户决定是否合并
+
+## git stash
+
+git stash 暂存当前分支的修改（暂存区和工作目录文件的修改）
+
+git stash -u 存储未跟踪文件
+
+git stash -a 存储未跟踪的文件和被忽略的文件
+
+git stash pop 恢复之前的工作进度
 
 # 二、git相关原理
 
