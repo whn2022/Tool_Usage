@@ -53,9 +53,9 @@ git init 在当前文件夹创建.git文件，用以关联远程仓库
 
 git log 显示提交历史 
 
---oneline original/master..master 查看远程没有本地有的提交
+--oneline origin/master..master 查看远程没有本地有的提交
 
---oneline master..original/master 查看本地没有远程有的提交
+--oneline master..origin/master 查看本地没有远程有的提交
 
 ## git ls-files
 
