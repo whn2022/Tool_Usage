@@ -18,6 +18,14 @@ git branch <new_branch_name> 创建分支
 
 git branch -m/-M <new_branch_name> 修改当前分支名称
 
+git branch -vv 查看当前分支和远程分支的关联情况
+
+git branch --unset-upstream 撤销当前分支与远程分支的关联情况
+
+git branch -u <remote_repository_name>/<remote_branch_name> 将当前分支与远程分支关联
+
+git branch -d <local_branch_name> 删除本地分支
+
 ## git checkout
 
 git checkout <branchname> 切换分支 （如果没有该分支，可以加-b参数创建分支）
@@ -78,6 +86,8 @@ git pull <remote_repository_name> <remote_branch_name>
 git push -u <remote_repository_name> <remote_branch_name> （首次推送需要用u来进行关联）
 
 git push <remote_repository_name> --delete <remote_branch_name>  删除某个远程分支（不能为默认分支）
+
+或者使用git push <remote_repository_name> :<remote_branch_name> 删除
 
 ## git remote
 
