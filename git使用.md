@@ -47,6 +47,10 @@ git config --global https.proxy http://127.0.0.1:你的代理端口号 为 Git �
 git config --global --unset http.proxy  取消代理
 git config --global --unset https.proxy  取消代理
 
+--replace-all 当设置多次的情况下可以替换所有值
+
+--list 展示当前配置
+
 ## git diff
 
 git diff 暂存区与工作区状态相比较（必须先上传文件到暂存区）
@@ -89,11 +93,17 @@ git push <remote_repository_name> --delete <remote_branch_name>  删除某个远
 
 或者使用git push <remote_repository_name> :<remote_branch_name> 删除
 
+
+
+git push --set-upstream origin master 设置与之关联的远程仓库分支，并推送
+
 ## git remote
 
 git remote add <remote_name> <remote_url> 关联远程仓库（主要是通过url决定，name为别名，后续使用时可使用该别名）
 
 git remote show 显示关联的远程仓库
+
+git remote set-url <remote_repository_name>  xxx.git 设置连接方式
 
 ## git status
 
@@ -112,6 +122,16 @@ git stash -u 存储未跟踪文件
 git stash -a 存储未跟踪的文件和被忽略的文件
 
 git stash pop 恢复之前的工作进度
+
+## git rm
+
+git rm <file> 可以直接删除工作区的文件，并将这次结果放到暂存区（要删除的文件需和版本库保持一致）
+
+git rm -f <file> 删除工作区和暂存区文件，并将这次结果放到暂存区（要删除的文件已被修改过）
+
+git rm --cached <file> 删除暂存区文件，保留工作区文件，并将这次删除放到暂存区（取消跟踪），提交后版本库文件也会被删除
+
+
 
 # 二、git相关原理
 
